@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Display help message
+# Function to display help message
 show_help() {
     echo "Usage: $0 [OPTIONS] PATTERN FILE"
     echo "Search for PATTERN in FILE"
@@ -12,18 +12,17 @@ show_help() {
     exit 1
 }
 
-# Check for --help first
+# Check if help flag is provided
 if [[ "$1" == "--help" ]]; then
     show_help
 fi
 
-# Initialize variables
 show_line_numbers=0
 invert_match=0
 pattern=""
 file=""
 
-# Handle options
+# Parse options
 if [[ "$1" == "-n" ]]; then
     show_line_numbers=1
     shift
@@ -36,11 +35,11 @@ elif [[ "$1" == "-nv" || "$1" == "-vn" ]]; then
     shift
 fi
 
-# Get pattern and file
+# Assign pattern and file arguments
 pattern="$1"
 file="$2"
 
-# Error checking
+# Validate input arguments
 if [[ -z "$pattern" ]]; then
     echo "Error: Missing search pattern"
     show_help
@@ -59,15 +58,11 @@ fi
 # Convert pattern to lowercase for case-insensitive matching
 pattern_lower=$(echo "$pattern" | tr '[:upper:]' '[:lower:]')
 
-# Process file
+# process matches
 line_num=1
 while IFS= read -r line; do
-    # Convert line to lowercase for case-insensitive comparison
     line_lower=$(echo "$line" | tr '[:upper:]' '[:lower:]')
-    
-    # Check if pattern exists in line (case-insensitive)
     if [[ "$line_lower" == *"$pattern_lower"* ]]; then
-        # Match found
         if [[ $invert_match -eq 0 ]]; then
             if [[ $show_line_numbers -eq 1 ]]; then
                 echo "$line_num:$line"
@@ -76,7 +71,6 @@ while IFS= read -r line; do
             fi
         fi
     else
-        # No match
         if [[ $invert_match -eq 1 ]]; then
             if [[ $show_line_numbers -eq 1 ]]; then
                 echo "$line_num:$line"
