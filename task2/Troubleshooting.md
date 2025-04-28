@@ -68,9 +68,11 @@ cat /etc/resolv.conf
 
 **Issue:** Internal DNS server malfunction  
 - Confirm root cause:  
-![DNS Service Check](https://github.com/user-attachments/assets/b68f8d5b-7ac8-4e93-a249-607e7df46f3b)
+![DNS Service Check]![image](https://github.com/user-attachments/assets/15f159cb-1bd8-4e19-9f35-a3826592458f)
+
 - Fix:  
-![Restart DNS Service](https://github.com/user-attachments/assets/aca4fd2e-d14a-41ab-9088-15fd8903f09d)
+![Restart DNS Service]![image](https://github.com/user-attachments/assets/2b346b73-5bae-4206-ab64-ddca6eb41dad)
+
 
 ---
 
@@ -78,7 +80,8 @@ cat /etc/resolv.conf
 - Check multiple clients, verify TTL:  
 ![TTL Check](https://github.com/user-attachments/assets/6daf2a09-c172-42c6-aca0-e2d3febc7021)
 - Fix: Flush DNS cache  
-![Flush Cache](https://github.com/user-attachments/assets/54ae493c-7d23-42a1-b8d7-d1428cb59074)
+![Flush Cache]![image](https://github.com/user-attachments/assets/a2887136-4292-4a82-b7d1-edf73c750e6d)
+
 
 ---
 
@@ -94,7 +97,7 @@ cat /etc/resolv.conf
 
 **Issue:** Routing problems  
 - Check route to server:  
-![Traceroute](https://github.com/user-attachments/assets/a8d731af-5ca9-4f23-80dc-51d11a502725)
+![image](https://github.com/user-attachments/assets/eab1329d-fff8-4168-8e0a-c9f1bb440949)
 - Check routing table:  
 ![Routing Table Check](https://github.com/user-attachments/assets/32a9f6ff-2e0f-4640-a36f-b0da438401de)
 - Fix: Add static route if needed  
@@ -106,20 +109,24 @@ cat /etc/resolv.conf
 
 **Issue:** Web server not running  
 - Confirm with service status:  
-![Service Status](https://github.com/user-attachments/assets/83736a2a-8565-4df7-9050-aed29a6b9f79)
+![image](https://github.com/user-attachments/assets/d0792fdf-4497-43aa-b7e4-46be3d4cdc13)
 - Check logs:  
-![Check Logs](https://github.com/user-attachments/assets/22bb4edb-4451-4170-bacb-51ebfd64fe0f)
-- Fix: Start service and enable at boot  
-![Start Service](https://github.com/user-attachments/assets/94c64834-61e0-44ed-9e9f-ff19bbe64ed0)  
-![Enable Service](https://github.com/user-attachments/assets/c85faa12-bf8a-48ae-a760-7c64618fad9f)
+![image](https://github.com/user-attachments/assets/25e26ba7-0ae1-463c-8a9d-4a858acdeef5)
+- Check which process using port 80
+![image](https://github.com/user-attachments/assets/b0622bf4-9011-4cf9-b354-4e87f9ea1583)
+- stoping the docker conatiner  
+![image](https://github.com/user-attachments/assets/28f7d2e3-e227-4469-931a-f55435e2cb6a)
+- restart the service and check the status 
+![image](https://github.com/user-attachments/assets/34d7196b-572e-445c-897d-928b652a0439)
+
 
 ---
 
 **Issue:** Web server misconfiguration  
 - Confirm with config file checks:  
-![Config File Check](https://github.com/user-attachments/assets/7648c215-078c-4405-84ea-0fb31aa782fc)
+![image](https://github.com/user-attachments/assets/e8acfe2f-7f02-4062-b25e-307c8962379c)
 - Check virtual hosts:  
-![Virtual Hosts Check](https://github.com/user-attachments/assets/740e1986-0e2c-4e80-9714-30e48e238267)
+![image](https://github.com/user-attachments/assets/41bdf8fd-8ae2-480e-9a21-6e5f776fc1fc)
 - Fix: Edit and reload  
 ![Edit Virtual Host](https://github.com/user-attachments/assets/7cfcf662-212c-4f1f-a887-6021a723df3a)  
 ![Enable Site](https://github.com/user-attachments/assets/a8dab7b0-7c85-41fa-851f-808c127d5df3)  
